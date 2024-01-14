@@ -11,6 +11,10 @@ namespace Cuentas.Options.Shared
             CreateMap<CuentaTable,CuentaAddDto>().ReverseMap();
             CreateMap<CuentaTable,CuentaUpdateDto>().ReverseMap();
             CreateMap<CuentaTable, CuentaDeleteDto>().ReverseMap();
+
+            CreateMap<UsuarioTable, UsuarioAddDto>().ReverseMap();
+            CreateMap<UsuarioTable, UsuarioUpdateDto>().ReverseMap();
+            CreateMap<UsuarioTable, UsuarioDeleteDto>().ReverseMap();
         }
     }
 }

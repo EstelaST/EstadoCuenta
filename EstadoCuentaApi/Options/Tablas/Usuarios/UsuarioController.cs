@@ -7,28 +7,28 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cuentas.Controllers
 {
+
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class CuentaController : Controller
+    public class UsuarioController : Controller
     {
-        private readonly ICuentaService _service;
-        
-        public CuentaController(ICuentaService service)
+        private readonly IUsuarioService _service;
+        public UsuarioController(IUsuarioService service)
         {
             _service = service;
         }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<Respuesta> Get([FromQuery] CuentaParam Data)
+        public async Task<Respuesta> Get()
         {
-            return await _service.GetDataAsync(Data);
+            return await _service.GetAllDataAsync();
         }
-            
+
+        [AllowAnonymous]
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Post(CuentaAddDto Data)
+        public async Task<IActionResult> Post(UsuarioAddDto Data)
         {
             var resultado = await _service.CreateAsync(Data);
             if (resultado.ErrorCode == 0)
@@ -41,9 +41,31 @@ namespace Cuentas.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(UsuarioLogin Data)
+        {
+            var resultado = await _service.LoginAsync(Data);
+
+            if (!resultado.Result)
+            {
+                return BadRequest(resultado);
+            }
+            else
+            {
+                var usuario = (UsuarioLogin)resultado.Data;
+                if (string.IsNullOrEmpty(usuario.Token))
+                {
+                    return BadRequest(resultado);
+                }
+            }
+            return Ok(resultado);
+        }
+
+
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Put(CuentaUpdateDto Data)
+        public async Task<IActionResult> Put(UsuarioUpdateDto Data)
         {
             var resultado = await _service.UpdateAsync(Data);
             if (resultado.ErrorCode == 0)
@@ -56,10 +78,9 @@ namespace Cuentas.Controllers
             }
         }
 
-
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Delete(CuentaDeleteDto Data)
+        public async Task<IActionResult> Delete(UsuarioDeleteDto Data)
         {
             var resultado = await _service.DeleteAsync(Data);
             if (resultado.ErrorCode == 0)
@@ -71,6 +92,5 @@ namespace Cuentas.Controllers
                 return BadRequest(resultado);
             }
         }
-
     }
 }

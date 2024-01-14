@@ -2,7 +2,7 @@
 using Cuentas.Options.Shared;
 using Cuentas.Models;
 
-namespace Cuentas.Options.Tablas.Cuenta
+namespace Cuentas.Services
 {
     public interface ICuentaService
     {
