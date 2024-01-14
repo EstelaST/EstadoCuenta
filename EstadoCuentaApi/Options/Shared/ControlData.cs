@@ -26,6 +26,57 @@ namespace Cuentas.Options.Shared
             objSQLBuilder = new SqlBuilder();
         }
 
+        public async Task<DbDataReader> GetDataReader(string vViewName, List<Parametro> xParametros = null)
+        {
+            try
+            {
+                string xQry = "";
+                string vWhere = "";
+
+                if (objConnection.State != ConnectionState.Open)
+                    await objConnection.OpenAsync();
+
+                objCommand = dataFactory.CreateCommand();
+                objCommand.Connection = objConnection;
+                objCommand.CommandType = CommandType.Text;
+                objCommand.CommandTimeout = 0;
+
+                if (xParametros != null)
+                {
+                    foreach (Parametro p in xParametros)
+                    {
+                        if (p.ParameterName != "")
+                        {
+                            objParameter = dataFactory.CreateParameter();
+                            objParameter.DbType = p.DbType;
+                            objParameter.ParameterName = p.ParameterName;
+                            objParameter.Value = p.Value;
+                            objParameter.Direction = p.Direction;
+                            objParameter.Size = p.Size;
+
+                            objCommand.Parameters.Add(objParameter);
+
+                            if (vWhere != "") { vWhere += " AND "; }
+                            vWhere += $"{p.ParameterName}=@{p.ParameterName}";
+                        }
+                    }
+                }
+
+                xQry = objSQLBuilder.toSelect(vViewName, vWhere);
+
+                objCommand.CommandText = xQry;
+
+                objReader = await objCommand.ExecuteReaderAsync();
+
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+
+            return objReader;
+        }
+
         public async Task<DbDataReader> GetDataReader(CommandType xCommandType,
                                           string xQry = "",
                                           List<Parametro> xParametros = null)
@@ -40,18 +91,21 @@ namespace Cuentas.Options.Shared
                 objCommand.CommandType = xCommandType;
                 objCommand.CommandTimeout = 0;
 
-                foreach (Parametro p in xParametros)
+                if (xParametros != null)
                 {
-                    if (p.ParameterName != "")
+                    foreach (Parametro p in xParametros)
                     {
-                        objParameter = dataFactory.CreateParameter();
-                        objParameter.DbType = p.DbType;
-                        objParameter.ParameterName = p.ParameterName;
-                        objParameter.Value = p.Value;
-                        objParameter.Direction = p.Direction;
-                        objParameter.Size = p.Size;
+                        if (p.ParameterName != "")
+                        {
+                            objParameter = dataFactory.CreateParameter();
+                            objParameter.DbType = p.DbType;
+                            objParameter.ParameterName = p.ParameterName;
+                            objParameter.Value = p.Value;
+                            objParameter.Direction = p.Direction;
+                            objParameter.Size = p.Size;
 
-                        objCommand.Parameters.Add(objParameter);
+                            objCommand.Parameters.Add(objParameter);
+                        }
                     }
                 }
 
@@ -86,18 +140,21 @@ namespace Cuentas.Options.Shared
                 objCommand.CommandText = xQry;
                 objCommand.CommandTimeout = 0;
 
-                foreach (Parametro p in xParametros)
+                if (xParametros != null)
                 {
-                    if (p.ParameterName != "")
+                    foreach (Parametro p in xParametros)
                     {
-                        objParameter = dataFactory.CreateParameter();
-                        objParameter.DbType = p.DbType;
-                        objParameter.ParameterName = p.ParameterName;
-                        objParameter.Value = p.Value;
-                        objParameter.Direction = p.Direction;
-                        objParameter.Size = p.Size;
+                        if (p.ParameterName != "")
+                        {
+                            objParameter = dataFactory.CreateParameter();
+                            objParameter.DbType = p.DbType;
+                            objParameter.ParameterName = p.ParameterName;
+                            objParameter.Value = p.Value;
+                            objParameter.Direction = p.Direction;
+                            objParameter.Size = p.Size;
 
-                        objCommand.Parameters.Add(objParameter);
+                            objCommand.Parameters.Add(objParameter);
+                        }
                     }
                 }
 

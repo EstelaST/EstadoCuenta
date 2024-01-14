@@ -11,7 +11,5 @@ namespace Cuentas.Options.Shared
         {
             objData = new ControlData(connectionString, providerName);
         }
-
-
     }
 }

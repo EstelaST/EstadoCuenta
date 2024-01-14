@@ -4,7 +4,7 @@ using Cuentas.Models;
 using Cuentas.Options.Shared;
 using Cuentas.Repositories;
 
-namespace Cuentas.Options.Tablas.Cuenta
+namespace Cuentas.Services
 {
     public class CuentaService : ICuentaService
     {
