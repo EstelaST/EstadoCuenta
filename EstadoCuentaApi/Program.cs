@@ -13,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ICuentaRepository, CuentaRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IMaeEstadoCuentaRepository, MaeEstadoCuentaRepository>();
+builder.Services.AddScoped<IDetEstadoCuentaRepository, DetEstadoCuentaRepository>();
 
 #endregion
 
@@ -20,7 +22,8 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 builder.Services.AddScoped<ICuentaService, CuentaService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
-
+builder.Services.AddScoped<IMaeEstadoCuentaService, MaeEstadoCuentaService>();
+builder.Services.AddScoped<IDetEstadoCuentaService, DetEstadoCuentaService>();
 #endregion
 
 #region "Autenticacion"

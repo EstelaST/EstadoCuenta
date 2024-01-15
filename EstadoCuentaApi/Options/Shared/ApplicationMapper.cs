@@ -15,6 +15,14 @@ namespace Cuentas.Options.Shared
             CreateMap<UsuarioTable, UsuarioAddDto>().ReverseMap();
             CreateMap<UsuarioTable, UsuarioUpdateDto>().ReverseMap();
             CreateMap<UsuarioTable, UsuarioDeleteDto>().ReverseMap();
+
+            CreateMap<MaeEstadoCuentaTable, MaeEstadoCuentaAddDto>().ReverseMap();
+            CreateMap<MaeEstadoCuentaTable, MaeEstadoCuentaUpdateDto>().ReverseMap();
+            CreateMap<MaeEstadoCuentaTable, MaeEstadoCuentaDeleteDto>().ReverseMap();
+
+            CreateMap<DetEstadoCuentaTable, DetEstadoCuentaAddDto>().ReverseMap();
+            CreateMap<DetEstadoCuentaTable, DetEstadoCuentaUpdateDto>().ReverseMap();
+            CreateMap<DetEstadoCuentaTable, DetEstadoCuentaDeleteDto>().ReverseMap();
         }
     }
 }
