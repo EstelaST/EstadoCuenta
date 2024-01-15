@@ -95,6 +95,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+if (app.Environment.IsProduction()) {
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
