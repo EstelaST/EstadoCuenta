@@ -1,0 +1,1258 @@
+{
+	"info": {
+		"_postman_id": "ac545317-14fd-44f1-95aa-55923e693de2",
+		"name": "Cuentas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32327396"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"usuario\": \"Sofia\",\r\n  \"contrasena\": \"123\",\r\n  \"token\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/Usuario/Login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Usuario",
+								"Login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"usuario\": \"Sofia\",\r\n  \"contrasena\": \"123\",\r\n  \"token\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/Usuario/Login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"Usuario",
+										"Login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 03:59:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 0,\n    \"rowsAffected\": 0,\n    \"data\": {\n        \"usuario\": \"Sofia\",\n        \"contrasena\": \"202cb962ac59075b964b07152d234b70\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7168/Usuario",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Usuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Usuario",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7168/Usuario",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:15:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 0,\n    \"rowsAffected\": 4,\n    \"data\": [\n        {\n            \"nombre\": \"Sofia\",\n            \"apellido\": \"Perez \",\n            \"edad\": 34,\n            \"correo\": \"sofi@gmail.com\",\n            \"usuario\": \"Sofia\",\n            \"contrasena\": \"202cb962ac59075b964b07152d234b70\",\n            \"fechaCrea\": \"0001-01-01T00:00:00\",\n            \"fechaActualiza\": \"0001-01-01T00:00:00\"\n        },\n        {\n            \"nombre\": \"felipe\",\n            \"apellido\": \"garcia\",\n            \"edad\": 34,\n            \"correo\": \"felipe@gmail.com\",\n            \"usuario\": \"felipe\",\n            \"contrasena\": \"25f9e794323b453885f5181f1b624d0b\",\n            \"fechaCrea\": \"0001-01-01T00:00:00\",\n            \"fechaActualiza\": \"0001-01-01T00:00:00\"\n        },\n        {\n            \"nombre\": \"jose\",\n            \"apellido\": \"gonzalez\",\n            \"edad\": 3,\n            \"correo\": \"jose@gmail.com\",\n            \"usuario\": \"jose\",\n            \"contrasena\": \"912e79cd13c64069d91da65d62fbb78c\",\n            \"fechaCrea\": \"0001-01-01T00:00:00\",\n            \"fechaActualiza\": \"0001-01-01T00:00:00\"\n        },\n        {\n            \"nombre\": \"Pamela\",\n            \"apellido\": \"Mendez\",\n            \"edad\": 39,\n            \"correo\": \"pamela@gmail.com\",\n            \"usuario\": \"Pamela\",\n            \"contrasena\": \"912e79cd13c64069d91da65d62fbb78c\",\n            \"fechaCrea\": \"0001-01-01T00:00:00\",\n            \"fechaActualiza\": \"0001-01-01T00:00:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Post Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Pamela\",\r\n  \"apellido\": \"Mendez\",\r\n  \"edad\": 39,\r\n  \"correo\": \"pamela@gmail.com\",\r\n  \"usuario\": \"Pamela\",\r\n  \"contrasena\": \"9876\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/Usuario",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Usuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post Usuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Pamela\",\r\n  \"apellido\": \"Mendez\",\r\n  \"edad\": 39,\r\n  \"correo\": \"pamela@gmail.com\",\r\n  \"usuario\": \"Pamela\",\r\n  \"contrasena\": \"9876\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/Usuario",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:09:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 4,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/Usuario",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Usuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Usuario",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/Usuario",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:20:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 3,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cuenta",
+			"item": [
+				{
+					"name": "Post Cuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 1,\r\n  \"numeroCuenta\": \"88876666\",\r\n  \"porcentajeInteres\": 0.05,\r\n  \"porcentajePagoMin\": 0.14,\r\n  \"limiteCredito\": 4000,\r\n  \"diaCorte\": 25,\r\n  \"pagoContado\": 0,\r\n  \"saldoTotal\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/Cuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Cuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post Cuenta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idUsuario\": 1,\r\n  \"numeroCuenta\": \"88876666\",\r\n  \"porcentajeInteres\": 0.05,\r\n  \"porcentajePagoMin\": 0.14,\r\n  \"limiteCredito\": 4000,\r\n  \"diaCorte\": 25,\r\n  \"pagoContado\": 0,\r\n  \"saldoTotal\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/Cuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"Cuenta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:25:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 7,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Cuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCuenta\": 7,\r\n  \"idUsuario\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/Cuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Cuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Cuenta",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idCuenta\": 7,\r\n  \"idUsuario\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/Cuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"Cuenta"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:37:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 7,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Put Cuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCuenta\": 1,\r\n  \"idUsuario\": 1,\r\n  \"numeroCuenta\": \"88876666\",\r\n  \"porcentajeInteres\": 0.06,\r\n  \"porcentajePagoMin\": 0.09,\r\n  \"limiteCredito\": 3500,\r\n  \"diaCorte\": 28,\r\n  \"pagoContado\": 0,\r\n  \"saldoTotal\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/Cuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Cuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Put Cuenta",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idCuenta\": 1,\r\n  \"idUsuario\": 1,\r\n  \"numeroCuenta\": \"88876666\",\r\n  \"porcentajeInteres\": 0.06,\r\n  \"porcentajePagoMin\": 0.09,\r\n  \"limiteCredito\": 3500,\r\n  \"diaCorte\": 28,\r\n  \"pagoContado\": 0,\r\n  \"saldoTotal\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/Cuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"Cuenta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:28:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 1,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Consultas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7168/Cuenta?TipoConsulta=1&IdUsuario=1&IdCuenta=1&Mes=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Cuenta"
+							],
+							"query": [
+								{
+									"key": "TipoConsulta",
+									"value": "1"
+								},
+								{
+									"key": "IdUsuario",
+									"value": "1"
+								},
+								{
+									"key": "IdCuenta",
+									"value": "1"
+								},
+								{
+									"key": "Mes",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consultas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7168/Cuenta?TipoConsulta=1&IdUsuario=1&IdCuenta=1&Mes=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"Cuenta"
+									],
+									"query": [
+										{
+											"key": "TipoConsulta",
+											"value": "1"
+										},
+										{
+											"key": "IdUsuario",
+											"value": "1"
+										},
+										{
+											"key": "IdCuenta",
+											"value": "1"
+										},
+										{
+											"key": "Mes",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:56:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 0,\n    \"rowsAffected\": 6,\n    \"data\": [\n        {\n            \"nombre\": \"Sofia Perez \",\n            \"usuario\": \"Sofia\",\n            \"correo\": \"sofi@gmail.com\",\n            \"fechaApertura\": \"0001-01-01T00:00:00\",\n            \"numeroTarjeta\": \"88876666\",\n            \"limiteCredito\": 3500,\n            \"pagoMinimo\": 40.5207,\n            \"saldoDisponible\": 3049.77,\n            \"interesBonificable\": 27.0138,\n            \"pagoContado\": 450.23,\n            \"saldoActual\": 464.8436\n        },\n        {\n            \"nombre\": \"Sofia Perez \",\n            \"usuario\": \"Sofia\",\n            \"correo\": \"sofi@gmail.com\",\n            \"fechaApertura\": \"2024-01-10T21:52:06.16\",\n            \"numeroTarjeta\": \"764646454\",\n            \"limiteCredito\": 2700,\n            \"pagoMinimo\": 24.075,\n            \"saldoDisponible\": 2432.5,\n            \"interesBonificable\": 8.025,\n            \"pagoContado\": 267.5,\n            \"saldoActual\": 275.525\n        },\n        {\n            \"nombre\": \"Sofia Perez \",\n            \"usuario\": \"Sofia\",\n            \"correo\": \"sofi@gmail.com\",\n            \"fechaApertura\": \"2024-01-13T16:34:12.927\",\n            \"numeroTarjeta\": \"7377464\",\n            \"limiteCredito\": 3000,\n            \"pagoMinimo\": 0,\n            \"saldoDisponible\": 3000,\n            \"interesBonificable\": 0,\n            \"pagoContado\": 0,\n            \"saldoActual\": 0\n        },\n        {\n            \"nombre\": \"Sofia Perez \",\n            \"usuario\": \"Sofia\",\n            \"correo\": \"sofi@gmail.com\",\n            \"fechaApertura\": \"2024-01-13T16:40:40.143\",\n            \"numeroTarjeta\": \"646453\",\n            \"limiteCredito\": 2000,\n            \"pagoMinimo\": 0,\n            \"saldoDisponible\": 2000,\n            \"interesBonificable\": 0,\n            \"pagoContado\": 0,\n            \"saldoActual\": 0\n        },\n        {\n            \"nombre\": \"Sofia Perez \",\n            \"usuario\": \"Sofia\",\n            \"correo\": \"sofi@gmail.com\",\n            \"fechaApertura\": \"2024-01-13T16:46:48.97\",\n            \"numeroTarjeta\": \"737363563\",\n            \"limiteCredito\": 1500,\n            \"pagoMinimo\": 0,\n            \"saldoDisponible\": 1500,\n            \"interesBonificable\": 0,\n            \"pagoContado\": 0,\n            \"saldoActual\": 0\n        },\n        {\n            \"nombre\": \"Sofia Perez \",\n            \"usuario\": \"Sofia\",\n            \"correo\": \"sofi@gmail.com\",\n            \"fechaApertura\": \"2024-01-13T16:48:14.94\",\n            \"numeroTarjeta\": \"122222222222\",\n            \"limiteCredito\": 14000,\n            \"pagoMinimo\": 31.05,\n            \"saldoDisponible\": 13770,\n            \"interesBonificable\": 6.9,\n            \"pagoContado\": 230,\n            \"saldoActual\": 236.9\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MaeEstadoCuenta",
+			"item": [
+				{
+					"name": "Delete MaeEstadoCuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idCuenta\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/MaeEstadoCuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"MaeEstadoCuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete MaeEstadoCuenta",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idCuenta\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/MaeEstadoCuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"MaeEstadoCuenta"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:54:00 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 6,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Post MaeEstadoCuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCuenta\": 1,\r\n  \"mes\": 5,\r\n  \"anio\": 2024,\r\n  \"interesBonificable\": 0,\r\n  \"pagoContado\": 0,\r\n  \"saldoTotal\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/Cuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"Cuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post MaeEstadoCuenta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idCuenta\": 1,\r\n  \"mes\": 5,\r\n  \"anio\": 2024,\r\n  \"interesBonificable\": 0,\r\n  \"pagoContado\": 0,\r\n  \"saldoTotal\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/MaeEstadoCuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"MaeEstadoCuenta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:41:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 5,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Put MaeEstadoCuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idCuenta\": 1,\r\n  \"mes\": 6,\r\n  \"anio\":2024,\r\n  \"interesBonificable\": 0,\r\n  \"pagoContado\": 0,\r\n  \"saldoTotal\": 0,\r\n  \"fechaCorte\": \"2024-06-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/MaeEstadoCuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"MaeEstadoCuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Put MaeEstadoCuenta",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idCuenta\": 1,\r\n  \"mes\": 6,\r\n  \"anio\":2024,\r\n  \"interesBonificable\": 0,\r\n  \"pagoContado\": 0,\r\n  \"saldoTotal\": 0,\r\n  \"fechaCorte\": \"2024-06-29\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/MaeEstadoCuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"MaeEstadoCuenta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:43:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 6,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "DetEstadoCuenta",
+			"item": [
+				{
+					"name": "Put DetEstadoCuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idDetEstadoCuenta\": 17,\r\n  \"concepto\": \"Pago en Ferreteria\",\r\n  \"cargos\": 36.89,\r\n  \"abonos\": 0,\r\n  \"fechaTransaccion\": \"2024-01-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/DetEstadoCuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"DetEstadoCuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Put DetEstadoCuenta",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idDetEstadoCuenta\": 17,\r\n  \"concepto\": \"Pago en Ferreteria\",\r\n  \"cargos\": 36.89,\r\n  \"abonos\": 0,\r\n  \"fechaTransaccion\": \"2024-01-15\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/DetEstadoCuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"DetEstadoCuenta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:49:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 0,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Post DetEstadoCuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idCuenta\": 1,\r\n  \"concepto\": \"Pago en TacoBel\",\r\n  \"cargos\": 36.89,\r\n  \"abonos\": 0,\r\n  \"fechaTransaccion\": \"2024-01-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/DetEstadoCuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"DetEstadoCuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post DetEstadoCuenta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idCuenta\": 1,\r\n  \"concepto\": \"Pago en TacoBel\",\r\n  \"cargos\": 36.89,\r\n  \"abonos\": 0,\r\n  \"fechaTransaccion\": \"2024-01-15\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/DetEstadoCuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"DetEstadoCuenta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:47:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 1,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete DetEstadoCuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNvZmlhIiwibmJmIjoxNzA1Mzc3NTgwLCJleHAiOjE3MDU0NjM5ODAsImlhdCI6MTcwNTM3NzU4MH0.KslRob3SDspRQivfSjngmVPzIYnb6cbl30UezNtC8Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idDetEstadoCuenta\": 17\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7168/DetEstadoCuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7168",
+							"path": [
+								"DetEstadoCuenta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete DetEstadoCuenta",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"idMaeEstadoCuenta\": 6,\r\n  \"idDetEstadoCuenta\": 17\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7168/DetEstadoCuenta",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7168",
+									"path": [
+										"DetEstadoCuenta"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Jan 2024 04:51:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"\",\n    \"errorSource\": \"\",\n    \"result\": true,\n    \"codeHelper\": 0,\n    \"rowsAffected\": 1,\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
