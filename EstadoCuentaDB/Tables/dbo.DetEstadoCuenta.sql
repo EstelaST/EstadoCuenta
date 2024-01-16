@@ -55,22 +55,22 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
-CREATE TRIGGER [dbo].[DELETE_ESTADO_CUENTA] ON [dbo].[DetEstadoCuenta] FOR DELETE
+CREATE TRIGGER [dbo].[DELETE_ESTADO_CUENTA] ON [dbo].[DetEstadoCuenta] AFTER DELETE
 AS 
-	DECLARE  @IDMAE_ESTADO_CUENTA INT, @IDCUENTA   INT, @INTERES_BONIFICABLE DECIMAL(18,4), @PAGO_CONTADO DECIMAL(14,4), @SALDO_TOTAL DECIMAL(18,4),
-					@CARGO DECIMAL(18,4), @ABONO DECIMAL(18,4)
+	DECLARE  @IDMAE_ESTADO_CUENTA INT, @IDCUENTA   INT, @INTERES_BONIFICABLE DECIMAL(18,4), @PAGO_CONTADO DECIMAL(14,4),
+					@SALDO_TOTAL DECIMAL(18,4), @IDDETESTADOCUENTA  INT = 0
 	BEGIN
-				SELECT @IDMAE_ESTADO_CUENTA = IdMaeEstadoCuenta, @CARGO = Cargos, @ABONO = Abonos FROM Deleted
+				SELECT @IDMAE_ESTADO_CUENTA = IdMaeEstadoCuenta, @IDDETESTADOCUENTA = IdDetEstadoCuenta FROM Deleted
 				SELECT 
 						@IDCUENTA = C.IdCuenta,
-						@PAGO_CONTADO =	SUM(A.Cargos) - SUM(A.Abonos), -- Sub total sin intereses del mes / Pago al contado
-						@INTERES_BONIFICABLE = ((SUM(A.Cargos) - SUM(A.Abonos)) * C.PorcentajeInteres), -- Interes Bonificable 
-						@SALDO_TOTAL = 	(SUM(A.Cargos) - SUM(A.Abonos)) + ((SUM(A.Cargos) - SUM(A.Abonos)) * C.PorcentajeInteres)
+						@PAGO_CONTADO = ISNULL(SUM(A.Cargos) - SUM(A.Abonos),0), -- Sub total sin intereses del mes / Pago al contado
+						@INTERES_BONIFICABLE = ISNULL(((SUM(A.Cargos) - SUM(A.Abonos)) * C.PorcentajeInteres),0), -- Interes Bonificable 
+						@SALDO_TOTAL = 	ISNULL((SUM(A.Cargos) - SUM(A.Abonos)) + ((SUM(A.Cargos) - SUM(A.Abonos)) * C.PorcentajeInteres),0)
 				FROM dbo.DetEstadoCuenta A
 				INNER JOIN MaeEstadoCuenta B WITH(NOLOCK) ON A.IdMaeEstadoCuenta = B.IdMaeEstadoCuenta
 				INNER JOIN Cuenta C WITH(NOLOCK) ON B.IdCuenta = C.IdCuenta
 				WHERE B.IdMaeEstadoCuenta = @IDMAE_ESTADO_CUENTA
+				AND IdDetEstadoCuenta <> @IDDETESTADOCUENTA
 				GROUP BY	A.IdMaeEstadoCuenta,
                             C.IdCuenta,
                             C.PorcentajeInteres
