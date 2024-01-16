@@ -17,7 +17,7 @@ namespace CuentasWeb.Controllers
 
         public ActionResult Usuario()
         {
-            return View("Usuario");
+            return View("Login");
         }
 
         [HttpPost]
@@ -25,9 +25,15 @@ namespace CuentasWeb.Controllers
         {
             try
             {
+               var resultado =  _service.LoginAsync(model);
 
-
-
+                if (resultado.Result)
+                {
+                    return RedirectToAction("Inicio", "Consultas");
+                }
+                else {
+                    return View("Login");
+                }
             }
             catch (Exception e)
             {
@@ -40,11 +46,20 @@ namespace CuentasWeb.Controllers
         {
             try
             {
-                return RedirectToAction("Usuario");
+                var resultado = _service.LoginAsync(model);
+
+                if (resultado.Result)
+                {
+                    return RedirectToAction("Inicio", "Consultas");
+                }
+                else
+                {
+                    return View("Login");
+                }
             }
             catch (Exception e)
             {
-                return View("Usuario");
+                return View("Login");
             }
         }
 

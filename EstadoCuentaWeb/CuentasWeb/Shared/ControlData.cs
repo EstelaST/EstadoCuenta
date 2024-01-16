@@ -20,51 +20,6 @@ namespace CuentasWeb.Shared
             objClient.Timeout = TimeSpan.FromMinutes(1);
         }
 
-        public Respuesta<TData> Get<TData>(string xController, string xMetodo, IDictionary<string, object> xQueryList = null)
-        {
-            Respuesta<TData> objResultado;
-            try
-            {
-                if (Token != "") { objClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token); }
-
-                UriBuilder builder = new UriBuilder(UrlAPI + xController + "/" + xMetodo);
-                if (xQueryList.Count > 0)
-                {
-                    builder.Query = getQuery(xQueryList);
-                }
-
-                HttpResponseMessage vResponse = objClient.GetAsync(builder.Uri).Result;
-                objResultado = JsonConvert.DeserializeObject<Respuesta<TData>>(vResponse.Content.ReadAsStringAsync().Result);
-
-                if (objResultado != null)
-                {
-                    return objResultado;
-                }
-
-                objResultado = new Respuesta<TData>();
-                objResultado.Result = false;
-                objResultado.ErrorCode = -1;
-                objResultado.CodeHelper = 0;
-                objResultado.RowsAffected = 0;
-                objResultado.ErrorMessage = $"{vResponse.StatusCode.ToString()}";
-
-                return objResultado;
-            }
-            catch (Exception e)
-            {
-                objResultado = new Respuesta<TData>();
-                objResultado.Result = false;
-                objResultado.ErrorCode = -1;
-                objResultado.CodeHelper = 0;
-                objResultado.RowsAffected = 0;
-                objResultado.ErrorSource = e.Source;
-                objResultado.ErrorMessage = e.Message;
-
-                return objResultado;
-            }
-
-        }
-
         public async Task<Respuesta<TData>> GetAsync<TData>(string xController, string xMetodo, IDictionary<string, object> xQueryList = null)
         {
             Respuesta<TData> objResultado;
@@ -109,51 +64,6 @@ namespace CuentasWeb.Shared
                 return objResultado;
             }
         }
-        public Respuesta<TData> Post<TContent, TData>(TContent xContent, string xController, string xMetodo, IDictionary<string, object> xQueryList = null)
-        {
-            Respuesta<TData> objResultado;
-            try
-            {
-                if (Token != "") { objClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token); }
-
-                string objSerilized = JsonConvert.SerializeObject(xContent);
-
-                UriBuilder builder = new UriBuilder(UrlAPI + xController + "/" + xMetodo);
-                if (xQueryList != null)
-                {
-                    builder.Query = getQuery(xQueryList);
-                }
-
-                HttpResponseMessage vResponse = objClient.PostAsync(builder.Uri, new StringContent(objSerilized, Encoding.UTF8, "application/json")).Result;
-                objResultado = JsonConvert.DeserializeObject<Respuesta<TData>>(vResponse.Content.ReadAsStringAsync().Result);
-
-                if (objResultado != null)
-                {
-                    return objResultado;
-                }
-
-                objResultado = new Respuesta<TData>();
-                objResultado.Result = false;
-                objResultado.ErrorCode = -1;
-                objResultado.CodeHelper = 0;
-                objResultado.RowsAffected = 0;
-                objResultado.ErrorMessage = $"{vResponse.StatusCode.ToString()}";
-
-                return objResultado;
-            }
-            catch (Exception e)
-            {
-                objResultado = new Respuesta<TData>();
-                objResultado.Result = false;
-                objResultado.ErrorCode = -1;
-                objResultado.CodeHelper = 0;
-                objResultado.RowsAffected = 0;
-                objResultado.ErrorSource = e.Source;
-                objResultado.ErrorMessage = e.Message;
-
-                return objResultado;
-            }
-        }
 
         public Respuesta<TData> Put<TContent, TData>(TContent xContent, string xController, string xMetodo, IDictionary<string, object> xQueryList = null)
         {
@@ -171,50 +81,6 @@ namespace CuentasWeb.Shared
                 }
 
                 HttpResponseMessage vResponse = objClient.PutAsync(builder.Uri, new StringContent(objSerilized, Encoding.UTF8, "application/json")).Result;
-                objResultado = JsonConvert.DeserializeObject<Respuesta<TData>>(vResponse.Content.ReadAsStringAsync().Result);
-
-                if (objResultado != null)
-                {
-                    return objResultado;
-                }
-
-                objResultado = new Respuesta<TData>();
-                objResultado.Result = false;
-                objResultado.ErrorCode = -1;
-                objResultado.CodeHelper = 0;
-                objResultado.RowsAffected = 0;
-                objResultado.ErrorMessage = $"{vResponse.StatusCode.ToString()}";
-
-                return objResultado;
-            }
-            catch (Exception e)
-            {
-                objResultado = new Respuesta<TData>();
-                objResultado.Result = false;
-                objResultado.ErrorCode = -1;
-                objResultado.CodeHelper = 0;
-                objResultado.RowsAffected = 0;
-                objResultado.ErrorSource = e.Source;
-                objResultado.ErrorMessage = e.Message;
-
-                return objResultado;
-            }
-        }
-
-        public Respuesta<TData> Delete<TData>(string xController, string xMetodo, IDictionary<string, object> xQueryList = null)
-        {
-            Respuesta<TData> objResultado;
-            try
-            {
-                if (Token != "") { objClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token); }
-
-                UriBuilder builder = new UriBuilder(UrlAPI + xController + "/" + xMetodo);
-                if (xQueryList != null)
-                {
-                    builder.Query = getQuery(xQueryList);
-                }
-
-                HttpResponseMessage vResponse = objClient.DeleteAsync(builder.Uri).Result;
                 objResultado = JsonConvert.DeserializeObject<Respuesta<TData>>(vResponse.Content.ReadAsStringAsync().Result);
 
                 if (objResultado != null)

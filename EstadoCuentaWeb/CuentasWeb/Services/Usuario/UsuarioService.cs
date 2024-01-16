@@ -14,30 +14,28 @@ namespace CuentasWeb.Services
         public ControlData _data;
         public UsuarioService(IConfiguration config)
         {
-            _data = new ControlData(config.GetSection("DbProvider:defaultProvider").Value);
+            _data = new ControlData(config.GetSection("Server:CuentasServer").Value);
         }
-
-
-        //public Task<Respuesta> CreateAsync(UsuarioAddDto Data)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task<Respuesta> DeleteAsync(UsuarioDeleteDto Data)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public Respuesta<UsuarioLogin> LoginAsync(UsuarioLogin Data)
         {
-            //Session["Usuario"/*]*/ = respuesta.Data.Usuario;
 
-            return _data.Post<UsuarioLogin, UsuarioLogin>(Data, "", "");
+            return _data.Put<UsuarioLogin, UsuarioLogin>(Data, "", "");
         }
 
-        //public Task<Respuesta> UpdateAsync(UsuarioUpdateDto Data)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public Respuesta<UsuarioAddDto> CreateAsync(UsuarioAddDto Data)
+        {
+            return _data.Put<UsuarioAddDto, UsuarioAddDto>(Data, "", "");
+        }
+
+        public Respuesta<UsuarioUpdateDto> UpdateAsync(UsuarioUpdateDto Data)
+        {
+            return _data.Put<UsuarioUpdateDto, UsuarioUpdateDto>(Data, "", "");
+        }
+
+        public Respuesta<UsuarioDeleteDto> DeleteAsync(UsuarioDeleteDto Data)
+        {
+            return _data.Put<UsuarioDeleteDto, UsuarioDeleteDto>(Data, "", "");
+        }
+
     }
 }
