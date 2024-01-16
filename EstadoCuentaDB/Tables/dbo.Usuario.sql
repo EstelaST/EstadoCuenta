@@ -6,7 +6,7 @@ CREATE TABLE [dbo].[Usuario]
 [Edad] [int] NOT NULL,
 [Correo] [varchar] (50) COLLATE Modern_Spanish_CI_AS NOT NULL,
 [Usuario] [varchar] (20) COLLATE Modern_Spanish_CI_AS NOT NULL,
-[Contrasena] [varchar] (8) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[Contrasena] [varchar] (100) COLLATE Modern_Spanish_CI_AS NOT NULL,
 [Fecha_Crea] [datetime] NOT NULL,
 [Fecha_Actualiza] [datetime] NULL
 ) ON [PRIMARY]

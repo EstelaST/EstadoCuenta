@@ -66,9 +66,41 @@ BEGIN
 		IF @TIPO_ACTUALIZA=3 --Eliminar
 		BEGIN
 
-			DELETE FROM DetEstadoCuenta
-			WHERE  IdMaeEstadoCuenta = @IDMAEESTADOCUENTA
-			AND IdDetEstadoCuenta = @IDDETESTADOCUENTA
+				--DECLARE @INTERES_BONIFICABLE DECIMAL(18,4), @PAGO_CONTADO DECIMAL(14,4), @SALDO_TOTAL DECIMAL(18,4)
+
+				--SELECT 
+				--		@PAGO_CONTADO =	 SUM(A.Cargos) - SUM(A.Abonos),
+				--		@INTERES_BONIFICABLE = ((SUM(A.Cargos) - SUM(A.Abonos)) * C.PorcentajeInteres), 
+				--		@SALDO_TOTAL = 	(SUM(A.Cargos) - SUM(A.Abonos)) + ((SUM(A.Cargos) - SUM(A.Abonos)) * C.PorcentajeInteres)
+				--FROM dbo.DetEstadoCuenta A
+				--INNER JOIN MaeEstadoCuenta B WITH(NOLOCK) ON A.IdMaeEstadoCuenta = B.IdMaeEstadoCuenta
+				--INNER JOIN Cuenta C WITH(NOLOCK) ON B.IdCuenta = C.IdCuenta
+				--WHERE B.IdMaeEstadoCuenta = @IDMAE_ESTADO_CUENTA
+				--AND IdDetEstadoCuenta <> @IDDETESTADOCUENTA
+				--GROUP BY	A.IdMaeEstadoCuenta,
+    --                        C.IdCuenta,
+    --                        C.PorcentajeInteres
+
+				--UPDATE MaeEstadoCuenta SET 
+				--InteresBonificable = @INTERES_BONIFICABLE,
+				--PagoContado = @PAGO_CONTADO,
+				--SaldoTotal = @SALDO_TOTAL,
+				--Fecha_Modifica = GETDATE()
+				--WHERE IdMaeEstadoCuenta = @IDMAE_ESTADO_CUENTA
+				--AND  IdCuenta =  @IDCUENTA
+
+				--SELECT 
+				--@SALDO_TOTAL =  SUM(SaldoTotal),
+				--@PAGO_CONTADO = SUM(PagoContado)
+				--FROM MaeEstadoCuenta 	WITH(NOLOCK)			
+				--WHERE  IdCuenta = @IDCUENTA
+
+				--UPDATE Cuenta  SET Saldo = @SALDO_TOTAL, PagoContado = @PAGO_CONTADO,Fecha_Modifica = GETDATE()
+				--WHERE IdCuenta = @IDCUENTA
+
+				DELETE FROM DetEstadoCuenta
+			    WHERE  IdMaeEstadoCuenta = @IDMAEESTADOCUENTA
+			    AND IdDetEstadoCuenta = @IDDETESTADOCUENTA
 
 		END
 		
@@ -78,7 +110,7 @@ BEGIN
 
 	BEGIN CATCH
 
-		SELECT @NUMERO_ERROR=ERROR_NUMBER(), @MENSAJE_ERROR=ERROR_MESSAGE()
+		SELECT @NUMERO_ERROR=ERROR_NUMBER(), @MENSAJE_ERROR=ERROR_MESSAGE(), @FILAS_AFECTADAS = 0
 	END CATCH;
 FINA:
 END
